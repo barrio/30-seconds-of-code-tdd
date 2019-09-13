@@ -2,5 +2,5 @@
 
 var exports = (module.exports = {})
 
-exports.all = () => false
-exports.any = () => false
+exports.all = (arr, fn = Boolean) => arr.every(fn)
+exports.any = (arr, fn = Boolean) => arr.some(fn)
