@@ -1,0 +1,23 @@
+{
+  "name": "30-seconds-of-code-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src/**/*.js ./test/**/*.js",
+    "test": "mocha --reporter list --exit ./test/**/*.js",
+    "test:cov": "nyc npm run test -- --reporter min",
+    "watch": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.3.0",
+    "eslint-plugin-mocha": "^6.1.1",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.2",
+    "nyc": "^14.1.1"
+  }
+}
