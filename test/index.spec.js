@@ -3,10 +3,30 @@
 var should = require('chai').should() // eslint-disable-line no-unused-vars
 var src = require('../src/index')
 
-describe('30 seconds of code TDD', function() {
+describe('30 sec TDD', function() {
   describe('dummy test:', function() {
     it('true should be true', function() {
       true.should.be.true
+    })
+  })
+  describe('equals', function() {
+    it('should only be true if both values are deeply identical', function() {
+      src.equals({ a: [1, { b: 2 }] }, { a: [1, { b: 2 }] }).should.be.true
+      src.equals({ a: [1, { b: 2 }] }, { a: [1, { b: 3 }] }).should.be.false
+      src.equals({ a: [1, { b: 2 }] }, { a: [1] }).should.be.false
+      src.equals(
+        new Date(2019, 9, 11, 10, 30, 59, 999),
+        new Date(2019, 9, 11, 10, 30, 59, 999)
+      ).should.be.true
+      src.equals(
+        new Date(2019, 9, 11, 10, 30, 59, 999),
+        new Date(2019, 9, 11, 10, 30, 59, 998)
+      ).should.be.false
+      src.equals(1, 1).should.be.true
+      src.equals('a', 'a').should.be.true
+      src.equals(1, '1').should.be.false
+      src.equals(null, null).should.be.true
+      src.equals(undefined, null).should.be.false
     })
   })
   describe('Arrays:', function() {
