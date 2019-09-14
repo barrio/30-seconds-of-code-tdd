@@ -19,4 +19,20 @@ describe('30 seconds of code TDD', function() {
       src.any([0, 1, 2], x => x > 1).should.be.true
     })
   })
+  describe('removeFalsy', function() {
+    it('shoud remove falsy elements from array', function() {
+      src
+        .removeFalsy([null, NaN, '', undefined, {}, 0, 1, 'a'])
+        .should.be.eql([{}, 1, 'a'])
+    })
+  })
+  describe('isEmptyObject', function() {
+    it('should only be true if an object has no properties ', function() {
+      src.isEmptyObject({}).should.be.true
+      src.isEmptyObject({ a: 1 }).should.be.false
+    })
+  })
+  describe('', function() {
+    it('', function() {})
+  })
 })
